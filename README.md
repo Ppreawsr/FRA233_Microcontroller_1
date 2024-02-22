@@ -209,3 +209,44 @@ HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 2000);
 ```
 **![](https://lh7-us.googleusercontent.com/A9LbDAhxsOJwEGAf_YL7CuatM5oor47rp2Do1brc76W6Kd3fNfoClmRrpJ81y_oMoO0BOgLYpkughqE9k57Sh7zcJ5djJyu02exKnSJpYgwH-lE4aLuHoa_FlmMAkZb9njeVgGqOXWDQtgJKpMnQ-Ig)**
+
+# Input Capture
+**![](https://lh7-us.googleusercontent.com/fNZAjVqe-CgNazwlcJja8kPjbRWUmeIaMnvKwPRF2EjLUZhU-Vi59mkQAYFNL7NTF5oD6ANDtYXcwGCJVal7-BvE5O4vQ3Ual3tjD18m7NaLUHNF4YdlraFZ-r7do_ihu0tPqiUSc4Az-wbXm6w2u6U)**
+**![](https://lh7-us.googleusercontent.com/SZ5PffqFbbXQP_Z-pdvmYgVC3ALedicLzucE02w-D86PfvierA0wXq-OWXNVafpjmiWyo2MGjB6nTDKoo5Su38nMaSXgIawYpJOcNoa1bjQ0L7gBhV8Wb-zW3v0H5vFL9n2_wevA-1tn4T7I64rFQsI)**
+```
+/* USER CODE BEGIN 2 */
+
+HAL_TIM_Base_Start(&htim1);
+HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_1);
+HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_2);
+```
+```
+/* USER CODE BEGIN 3 */
+
+Rise = __HAL_TIM_GET_COMPARE(&htim1,TIM_CHANNEL_1);
+
+Fall = __HAL_TIM_GET_COMPARE(&htim1,TIM_CHANNEL_2);
+dt = Fall - Rise;
+	if(Rise>Fall) {
+		ServoTime = dt + 65535 ;
+	}
+	else {
+		ServoTime = dt;
+	}
+```
+
+#  Blue button (PB13)
+
+**![](https://lh7-us.googleusercontent.com/4M8AhBIITNfF0-b3tcZuU0DVTqvil-qhI-Mm2y4_bj56OREwEH567zlSC7T502RGVMFOD7NcLKVu6nfq-SvLVCUHnxeujz-V3ORWOfSlUKRLvL5b3gV-6CHl22Z8zCDWTjqmffvZxbLIuflN8cEwi48)**
+**![](https://lh7-us.googleusercontent.com/51yJn4G58UB1LvnGFmfOqi28u-P7NS4qsA65GIco_vPvDixTkzhQ_f4EE-QEzVkqPHzw41_u07KPAdZ6oy1WJuK2m9_vUPAruD9FoJ_IDS1x6CvcWrsCNrNg9W-C6pHGIh4eG7kZlQomzCRLzq1ufcQ)**
+```
+/* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == GPIO_PIN_13)
+		{
+			//your code//
+		}
+}
+```
