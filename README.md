@@ -3,7 +3,7 @@
     #### Printf
 
 ###### Step 1 (page 12)
-Set .ICO at SYS to *Trace Asynchronous W*
+Set .IOC at SYS to *Trace Asynchronous W*
 
 \*note: SWO pin will not work (in this case PB3) because this pin is use in the transfer of Data (*Serial wire*)
 ###### Step 2 
