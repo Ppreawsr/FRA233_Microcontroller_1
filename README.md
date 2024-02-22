@@ -88,6 +88,8 @@ HAL_Delay(500);
 }
 /* USER CODE END 3 */
 ```
+
+**Callback**
 ```
 /* USER CODE BEGIN 4 */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
