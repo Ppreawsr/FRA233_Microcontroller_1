@@ -1,6 +1,46 @@
 # FRA233_Microcontroller_1
 # SWV
-    pp so cool 
+    #### Printf
+
+###### Step 1 (page 12)
+Set .ICO at SYS to *Trace Asynchronous W*
+
+\*note: SWO pin will not work (in this case PB3) because this pin is use in the transfer of Data (*Serial wire*)
+###### Step 2 
+Follow example on page 12. 
+Write this if you want to use *printf*
+``` C
+int _write(int file,char *ptr,int len)
+{
+	int i;
+	
+	for(i=0;i<len;i++)
+	{
+	ITM_SendChar(*ptr++);
+	}
+	return len;
+}
+```
+\*note: ITM stand for Instrumentation Trace Macrocel
+
+###### Step 3
+open Debug Configurations and set Clock (default is 170 MHz or see at Clock Configuration in .ICO) 
+
+###### Step 4
+Go to window > Show View > SWV > SWV ITM Data console
+
+###### Step 5
+Click on Tool icon on SWV ITM console
+on the SWV debug pop-up check the last *Enable port*.
+
+pause program open setting 
+set Data Trace to Comparator 0
+change Var/Addr
+Access is like a Subscribing to an action (ex. write) and update every time that action have been called.
+
+#### Logic Analyzer
+is like an *Oscilloscope* 
+sampling rate should be at least **2x the Data we're sampling**
     
  
 
