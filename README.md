@@ -200,7 +200,7 @@ Week 3 : https://classroom.google.com/c/NjUwNjQ5NTg1Nzc5/m/NjU4MDMyNzgyMzkx/deta
  ```
 /* USER CODE BEGIN 2 */
 
-HAL_TIM_Base_Start(&htim2);
+HAL_TIM_Base_Start_IT(&htim2);
 ```
 ```
 /* USER CODE BEGIN 4 */
